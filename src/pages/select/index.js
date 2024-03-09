@@ -18,9 +18,7 @@ const SelectTeamPage = () => {
     }, 2000);
   }, []);
 
-  const handleTeamBtnClick = () => {
-    window.location.href = "/team_main";
-  };
+  const handleTeamBtnClick = () => {};
 
   return (
     <main className="main-container">
@@ -34,7 +32,7 @@ const SelectTeamPage = () => {
 
       <div className={`main__btn-box ${userTeamBoxVisible ? "show" : ""}`}>
         <Link
-          to={"/team_main"}
+          to={"/sixers"}
           className="main__teamLink"
           onClick={handleTeamBtnClick}
         >

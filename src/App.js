@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />}></Route>
         <Route path="/select" element={<SelectTeamPage />}></Route>
-        <Route path="/team_main" element={<TeamMainPage />}></Route>
+        <Route path="/sixers" element={<TeamMainPage />}></Route>
       </Routes>
       {handleGnb() ? <ToggleMenu /> : null}
     </>
