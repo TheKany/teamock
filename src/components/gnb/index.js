@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import BackBtn from "../buttons/backBtn";
 import PageTitle from "../title";
 import MenuBtn from "../buttons/menuBtn";
