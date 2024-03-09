@@ -11,6 +11,9 @@
 @import "./mixin/space";
 @import "./mixin/button-style";
 
+@import "./components//toggleMenu/toggleMenu.scss";
+@import "./components/gnb/gnb.scss";
+
 @import "./page/login/login.scss";
 @import "./page/main/main.scss";
 @import "./page/team/team.scss";
