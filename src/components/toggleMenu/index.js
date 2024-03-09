@@ -1,13 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ToggleMenu = () => {
-  const handleSelectTeam = () => {
-    window.location.href = "/select";
-  };
+  const handleSelectTeam = () => {};
 
-  const handleLogout = () => {
-    window.location.href = "/";
-  };
+  const handleLogout = () => {};
 
   const onCloseMenu = () => {
     document.querySelector(".dimmed").classList.remove("active");
@@ -46,12 +43,16 @@ const ToggleMenu = () => {
           <button className="menu__links-btn">공지사항</button>
         </div>
         <div className="menu__gnb">
-          <button className="menu__gnb-selectTeam" onClick={handleSelectTeam}>
+          <Link
+            to={"/select"}
+            className="menu__gnb-selectTeam"
+            onClick={handleSelectTeam}
+          >
             팀 선택
-          </button>
-          <button className="menu__gnb-logout" onClick={handleLogout}>
+          </Link>
+          <Link to={"/"} className="menu__gnb-logout" onClick={handleLogout}>
             로그아웃
-          </button>
+          </Link>
         </div>
       </div>
     </>
