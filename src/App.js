@@ -7,6 +7,8 @@ import SelectTeamPage from "./pages/select";
 import TeamMainPage from "./pages/team";
 import ToggleMenu from "./components/toggleMenu";
 import GnbBar from "./components/gnb";
+import NoticeDetailPage from "./pages/notice/detail";
+import NoticeMainPage from "./pages/notice";
 
 function App() {
   const location = useLocation();
@@ -15,7 +17,7 @@ function App() {
 
   const handleGnb = () => {
     if (location.pathname === "/") return false;
-    if (location.pathname === "/select") return false;
+    if (location.pathname === "/select/main") return false;
 
     return true;
   };
@@ -25,8 +27,11 @@ function App() {
       {handleGnb() ? <GnbBar /> : null}
       <Routes>
         <Route path="/" element={<LoginPage />}></Route>
-        <Route path="/select" element={<SelectTeamPage />}></Route>
-        <Route path="/sixers" element={<TeamMainPage />}></Route>
+        <Route path="/select/main" element={<SelectTeamPage />}></Route>
+        <Route path="/team/main" element={<TeamMainPage />}></Route>
+        {/* 공지사항 */}
+        <Route path="/notice/main" element={<NoticeMainPage />}></Route>
+        <Route path="/notice/detail/:id" element={<NoticeDetailPage />}></Route>
       </Routes>
       {handleGnb() ? <ToggleMenu /> : null}
     </>

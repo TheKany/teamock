@@ -32,7 +32,7 @@ const SelectTeamPage = () => {
 
       <div className={`main__btn-box ${userTeamBoxVisible ? "show" : ""}`}>
         <Link
-          to={"/sixers"}
+          to={"/team/main"}
           className="main__teamLink"
           onClick={handleTeamBtnClick}
         >

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const TeamMainPage = () => {
   useEffect(() => {
@@ -10,7 +11,7 @@ const TeamMainPage = () => {
       <main className="tm-container fade">
         {/* <!-- 상단 공지사항 --> */}
         <div className="tm__notice">
-          <button className="tm__noticeBtn">
+          <Link to={"/notice/main"} className="tm__noticeBtn">
             <p className="tm__notice-title">
               <span>공지</span>
               <span>사항</span>
@@ -19,7 +20,7 @@ const TeamMainPage = () => {
               식서스의 공지사항입니다. 꼭 읽어주세요
             </p>
             <p className="tm__notice-date">2024.03.08</p>
-          </button>
+          </Link>
         </div>
 
         {/* <!-- 배너 --> */}

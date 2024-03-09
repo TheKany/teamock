@@ -24,7 +24,7 @@ const LoginPage = () => {
 
       <div className="login__btn-box">
         <Link
-          to={"/select"}
+          to={"/select/main"}
           className="login__kakao-btn"
           onClick={handleKakaoLogin}
         >
