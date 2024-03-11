@@ -13,6 +13,7 @@ const PageTitle = () => {
       if (pageName.includes("team")) title = "SIXERS";
       if (pageName.includes("notice")) title = "공지사항";
       if (pageName.includes("schedule")) title = "경기일정";
+      if (pageName.includes("info")) title = "정보센터";
 
       return title;
     };

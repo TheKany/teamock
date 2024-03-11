@@ -125,11 +125,11 @@
       padding: 8px;
 
       .tm__infoCentre-title {
-        @include text-style(24, 700);
+        @include text-style(24, 700, $basic-text);
       }
 
       .tm__infoCentre-subTitle {
-        @include text-style(14, 400);
+        @include text-style(14, 400, $basic-text);
       }
     }
 

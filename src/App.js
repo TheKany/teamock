@@ -10,6 +10,7 @@ import GnbBar from "./components/gnb";
 import NoticeDetailPage from "./pages/notice/detail";
 import NoticeMainPage from "./pages/notice";
 import ScheduleMainPage from "./pages/schedule";
+import InfoCentreMainPage from "./pages/info";
 
 function App() {
   const location = useLocation();
@@ -35,6 +36,8 @@ function App() {
         <Route path="/notice/detail/:id" element={<NoticeDetailPage />}></Route>
         {/* 경기일정 */}
         <Route path="/schedule/main" element={<ScheduleMainPage />}></Route>
+        {/* 정보센터 */}
+        <Route path="/info/main" element={<InfoCentreMainPage />}></Route>
       </Routes>
       {handleGnb() ? <ToggleMenu /> : null}
     </>

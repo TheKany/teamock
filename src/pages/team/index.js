@@ -68,10 +68,10 @@ const TeamMainPage = () => {
 
       {/* <!-- 메뉴 버튼 --> */}
       <div className="tm__teamBtn">
-        <button className="tm__teamBtn-infoCentre">
+        <Link to={"/info/main"} className="tm__teamBtn-infoCentre">
           <p className="tm__infoCentre-title">정보센터</p>
           <p className="tm__infoCentre-subTitle">우리팀에 대해 알아보아요</p>
-        </button>
+        </Link>
         <button className="tm__teamBtn-inGameMode">인게임모드</button>
       </div>
 
