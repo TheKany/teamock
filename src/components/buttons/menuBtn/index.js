@@ -15,7 +15,7 @@ const MenuBtn = ({ onOpenMenu }) => {
           stroke="white"
           strokeWidth="1.66667"
           strokeLinecap="round"
-          strokeinejoin="round"
+          strokeLinejoin="round"
         />
       </svg>
     </button>
