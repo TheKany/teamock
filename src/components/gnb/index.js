@@ -12,11 +12,6 @@ const GnbBar = () => {
     window.history.back();
   };
 
-  const onOpenMenu = () => {
-    document.querySelector(".dimmed").classList.add("active");
-    document.querySelector(".menu").classList.add("active");
-  };
-
   /**
    * left-btn
    * 각 Team메인: 팀 로고
@@ -49,10 +44,8 @@ const GnbBar = () => {
    * 2-depth: 페이지 닫기(뒤로가기)
    */
   const isRightBtn = () => {
-    if (location.pathname.includes("team"))
-      return <MenuBtn onOpenMenu={onOpenMenu} />;
-    if (location.pathname.includes("main"))
-      return <MenuBtn onOpenMenu={onOpenMenu} />;
+    if (location.pathname.includes("team")) return <MenuBtn />;
+    if (location.pathname.includes("main")) return <MenuBtn />;
     if (location.pathname.includes("detail"))
       return <CloseBtn closeEvent={onBack} />;
   };

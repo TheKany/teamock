@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import CloseBtn from "../buttons/closeBtn";
 
 const ToggleMenu = () => {
   const location = useLocation();
+  const [paramUrl, setParamUrl] = useSearchParams();
 
   const handleSelectTeam = () => {
     onCloseMenu();
@@ -16,26 +17,24 @@ const ToggleMenu = () => {
   const onCloseMenu = () => {
     document.querySelector(".dimmed").classList.remove("active");
     document.querySelector(".menu").classList.remove("active");
+
+    window.history.back();
   };
 
   const [isPage, setIsPage] = useState(null);
-
   useEffect(() => {
     const disabledBtn = () => {
       if (!location.pathname.includes("main")) return null;
 
       if (location.pathname.includes("team")) {
-        onCloseMenu();
         return setIsPage("team");
       }
 
       if (location.pathname.includes("schedule")) {
-        onCloseMenu();
         return setIsPage("schedule");
       }
 
       if (location.pathname.includes("notice")) {
-        onCloseMenu();
         return setIsPage("notice");
       }
     };
@@ -43,7 +42,12 @@ const ToggleMenu = () => {
     disabledBtn();
   }, [location.pathname]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (paramUrl.get("menu") === "ok") {
+      document.querySelector(".dimmed").classList.add("active");
+      document.querySelector(".menu").classList.add("active");
+    }
+  }, [location.pathname]);
 
   return (
     <>
@@ -56,7 +60,6 @@ const ToggleMenu = () => {
         <div className="menu__links">
           <Link
             to={"/team/main"}
-            onClick={onCloseMenu}
             className={`menu__links-btn ${
               isPage === "team" ? "disabled" : null
             }`}
@@ -72,7 +75,6 @@ const ToggleMenu = () => {
           </button>
           <Link
             to={"/schedule/main"}
-            onClick={onCloseMenu}
             className={`menu__links-btn ${
               isPage === "schedule" ? "disabled" : null
             }`}
@@ -88,7 +90,6 @@ const ToggleMenu = () => {
           </button>
           <Link
             to={"/notice/main"}
-            onClick={onCloseMenu}
             className={`menu__links-btn ${
               isPage === "notice" ? "disabled" : null
             }`}

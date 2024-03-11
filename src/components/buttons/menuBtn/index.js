@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 
-const MenuBtn = ({ onOpenMenu }) => {
+const MenuBtn = () => {
+  const location = useLocation();
+  const [paramUrl, setParamUrl] = useSearchParams();
+
+  const onOpenMenu = () => {
+    document.querySelector(".dimmed").classList.add("active");
+    document.querySelector(".menu").classList.add("active");
+
+    const newSearchParams = new URLSearchParams(paramUrl);
+    newSearchParams.set("menu", "ok");
+    setParamUrl(newSearchParams);
+  };
+
+  useEffect(() => {
+    if (paramUrl.get("menu") === "ok") {
+      document.querySelector(".dimmed").classList.add("active");
+      document.querySelector(".menu").classList.add("active");
+    } else {
+      document.querySelector(".dimmed")?.classList.remove("active");
+      document.querySelector(".menu")?.classList.remove("active");
+    }
+  }, [location.pathname]);
+
   return (
     <button className="nav-menu_btn" onClick={onOpenMenu}>
       <svg
