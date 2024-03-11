@@ -22,7 +22,7 @@ const MenuBtn = () => {
       document.querySelector(".dimmed")?.classList.remove("active");
       document.querySelector(".menu")?.classList.remove("active");
     }
-  }, [location.pathname]);
+  }, [location.pathname, paramUrl]);
 
   return (
     <button className="nav-menu_btn" onClick={onOpenMenu}>

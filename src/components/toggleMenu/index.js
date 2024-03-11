@@ -4,7 +4,7 @@ import CloseBtn from "../buttons/closeBtn";
 
 const ToggleMenu = () => {
   const location = useLocation();
-  const [paramUrl, setParamUrl] = useSearchParams();
+  const [paramUrl] = useSearchParams();
 
   const handleSelectTeam = () => {
     onCloseMenu();
