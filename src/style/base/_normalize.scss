@@ -23,7 +23,9 @@ html {
 
 body {
   margin: 0;
-  overflow: hidden;
+  // overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /**

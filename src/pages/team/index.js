@@ -76,7 +76,7 @@ const TeamMainPage = () => {
       </div>
 
       {/* 광고 */}
-      <div className="adfit"></div>
+      <div className="adfit" style={{ margin: "10px 0" }}></div>
     </main>
   );
 };
