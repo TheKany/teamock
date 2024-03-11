@@ -22,6 +22,8 @@
   .info__teamList-container {
     background-color: $sixers;
     padding: 0 16px;
+    overflow: auto;
+    margin-bottom: 100px;
 
     p {
       @include text-style(12, 400, $white);
@@ -29,76 +31,87 @@
 
     .info__teamList-item {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      align-items: center;
-      border-bottom: 1px solid $border;
-
-      width: 100%;
       height: 65px;
+      border-bottom: 1px solid $white;
       transition: height 0.5s ease;
 
       &.th {
+        grid-template-columns: repeat(7, 1fr);
         height: 50px;
+        align-items: center;
+        text-align: center;
+
+        .photo {
+          visibility: hidden;
+        }
+
+        .subInfo {
+          visibility: hidden;
+        }
+
+        .style {
+          grid-column: span 2;
+        }
       }
 
       &.open {
-        height: 150px;
+        height: 200px;
+        overflow: hidden;
       }
 
-      .info__item {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+      .info__item-btn {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
         align-items: center;
-        padding: 16px 0;
 
-        &.photo {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
+        width: 100%;
+
+        .info__item {
+          &.photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $white;
+          }
+
+          &.subInfo {
+          }
+
+          &.nickname {
+          }
+
+          &.winRate {
+          }
+
+          &.attRate {
+          }
+
+          &.style {
+            grid-column: span 2;
+          }
+        }
+      }
+
+      .info__item-detail {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        .info__detail-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
           overflow: hidden;
-          background-color: $white;
 
-          // 헤더
-          &.th {
-            visibility: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow: hidden;
           }
         }
 
-        &.subInfo {
-          display: grid;
-          grid-template-columns: repeat(2, 2fr);
-          text-align: center;
-
-          // 헤더
-          &.th {
-            visibility: hidden;
-          }
-
-          .info__subInfo-text {
-            &.number {
-            }
-
-            &.position {
-            }
-
-            &.name {
-              grid-column: span 2;
-            }
-          }
-        }
-
-        &.nickname {
-        }
-
-        &.winRate {
-        }
-
-        &.AttRate {
-        }
-
-        &.style {
-          grid-column: span 2;
+        .info__detail-contents {
+          width: 100%;
         }
       }
     }

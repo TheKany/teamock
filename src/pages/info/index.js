@@ -19,12 +19,12 @@ const InfoCentreMainPage = () => {
   }, []);
 
   // 프로필 열기
-  const [openProfile, setOpenProfile] = useState(null);
+  const [openId, setOpenId] = useState(null);
   const onClickProfile = (id) => {
-    if (openProfile === id) {
-      setOpenProfile(null);
+    if (openId === id) {
+      setOpenId(null);
     } else {
-      setOpenProfile(id);
+      setOpenId(id);
     }
   };
 
@@ -59,22 +59,21 @@ const InfoCentreMainPage = () => {
         {data?.map((el) => {
           return (
             // 선수
-            <button
+            <div
               className={`info__teamList-item ${
-                openProfile === el.id ? "open" : null
+                openId === el.id ? "open" : null
               }`}
-              key={`${el.id}_${el.name}`}
-              onClick={() => onClickProfile(el.id)}
             >
-              {openProfile !== el.id ? (
-                // 간략 정보
-                <>
-                  {/* 프로필 사진 */}
+              {openId !== el.id ? (
+                <button
+                  className="info__item-btn"
+                  onClick={() => onClickProfile(el.id)}
+                >
                   <div className="info__item photo"></div>
 
                   {/* 기본 정보 */}
                   <div className="info__item subInfo">
-                    <p className="info__subInfo-text number">#{el.id}</p>
+                    <p className="info__subInfo-text number">{el.id}</p>
                     <p className="info__subInfo-text position">{el.position}</p>
                     <p className="info__subInfo-text name">{el.name}</p>
                   </div>
@@ -86,16 +85,26 @@ const InfoCentreMainPage = () => {
                   <p className="info__item winRate">{el.winRate}%</p>
 
                   {/* 출석율 */}
-                  <p className="info__item AttRate">{el.attRate}%</p>
+                  <p className="info__item attRate">{el.attRate}%</p>
 
                   {/* 플레이스타일 */}
                   <p className="info__item style">{el.style}</p>
-                </>
+                </button>
               ) : (
-                // 상세 정보
-                <div className="info__detail-item"></div>
+                <button
+                  className="info__item-detail"
+                  onClick={() => onClickProfile(el.id)}
+                >
+                  <div className="info__detail-img">
+                    <img
+                      src={`/img/${el.imgSrc}`}
+                      alt={`${el.id}_${el.name}`}
+                    />
+                  </div>
+                  <div className="info__detail-contents"></div>
+                </button>
               )}
-            </button>
+            </div>
           );
         })}
       </div>
