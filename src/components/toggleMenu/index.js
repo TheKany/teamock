@@ -1,16 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import CloseBtn from "../buttons/closeBtn";
 
 const ToggleMenu = () => {
-  const handleSelectTeam = () => {};
+  const location = useLocation();
 
-  const handleLogout = () => {};
+  const handleSelectTeam = () => {
+    onCloseMenu();
+  };
+
+  const handleLogout = () => {
+    onCloseMenu();
+  };
 
   const onCloseMenu = () => {
     document.querySelector(".dimmed").classList.remove("active");
     document.querySelector(".menu").classList.remove("active");
   };
+
+  const [isPage, setIsPage] = useState(null);
+
+  useEffect(() => {
+    const disabledBtn = () => {
+      if (!location.pathname.includes("main")) return null;
+
+      if (location.pathname.includes("team")) {
+        onCloseMenu();
+        return setIsPage("team");
+      }
+
+      if (location.pathname.includes("schedule")) {
+        onCloseMenu();
+        return setIsPage("schedule");
+      }
+
+      if (location.pathname.includes("notice")) {
+        onCloseMenu();
+        return setIsPage("notice");
+      }
+    };
+
+    disabledBtn();
+  }, [location.pathname]);
+
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -21,11 +54,47 @@ const ToggleMenu = () => {
           <CloseBtn closeEvent={onCloseMenu} />
         </div>
         <div className="menu__links">
-          <button className="menu__links-btn">메인</button>
-          <button className="menu__links-btn">주간 스포츠</button>
-          <button className="menu__links-btn">경기 일정</button>
-          <button className="menu__links-btn">정보 센터</button>
-          <button className="menu__links-btn">공지사항</button>
+          <Link
+            to={"/team/main"}
+            onClick={onCloseMenu}
+            className={`menu__links-btn ${
+              isPage === "team" ? "disabled" : null
+            }`}
+          >
+            메인
+          </Link>
+          <button
+            className={`menu__links-btn ${
+              isPage === "weeklyNews" ? "disabled" : null
+            }`}
+          >
+            주간 스포츠
+          </button>
+          <Link
+            to={"/schedule/main"}
+            onClick={onCloseMenu}
+            className={`menu__links-btn ${
+              isPage === "schedule" ? "disabled" : null
+            }`}
+          >
+            경기 일정
+          </Link>
+          <button
+            className={`menu__links-btn ${
+              isPage === "info" ? "disabled" : null
+            }`}
+          >
+            정보 센터
+          </button>
+          <Link
+            to={"/notice/main"}
+            onClick={onCloseMenu}
+            className={`menu__links-btn ${
+              isPage === "notice" ? "disabled" : null
+            }`}
+          >
+            공지사항
+          </Link>
         </div>
         <div className="menu__gnb">
           <Link
