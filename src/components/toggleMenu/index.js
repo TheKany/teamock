@@ -47,7 +47,7 @@ const ToggleMenu = () => {
       document.querySelector(".dimmed").classList.add("active");
       document.querySelector(".menu").classList.add("active");
     }
-  }, [location.pathname]);
+  }, [location.pathname, paramUrl]);
 
   return (
     <>
