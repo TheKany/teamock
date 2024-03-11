@@ -59,7 +59,7 @@ const GnbBar = () => {
 
   return (
     // gnb: 작업시 컴포넌트 분리
-    <nav className="gnb">
+    <nav className="gnb responsive">
       {/* left-btn */}
       {isLeftBtn()}
 

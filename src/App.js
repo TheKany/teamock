@@ -9,6 +9,7 @@ import ToggleMenu from "./components/toggleMenu";
 import GnbBar from "./components/gnb";
 import NoticeDetailPage from "./pages/notice/detail";
 import NoticeMainPage from "./pages/notice";
+import ScheduleMainPage from "./pages/schedule";
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,8 @@ function App() {
         {/* 공지사항 */}
         <Route path="/notice/main" element={<NoticeMainPage />}></Route>
         <Route path="/notice/detail/:id" element={<NoticeDetailPage />}></Route>
+        {/* 경기일정 */}
+        <Route path="/schedule/main" element={<ScheduleMainPage />}></Route>
       </Routes>
       {handleGnb() ? <ToggleMenu /> : null}
     </>

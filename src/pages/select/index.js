@@ -21,7 +21,7 @@ const SelectTeamPage = () => {
   const handleTeamBtnClick = () => {};
 
   return (
-    <main className="main-container">
+    <main className="main-container responsive">
       <div
         style={{ opacity: cfBoxVisible ? 1 : 0 }}
         className={`main__catchphrase ${cfBoxPosition ? "position" : ""}`}

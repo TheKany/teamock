@@ -4,7 +4,7 @@ import ContentsLayout from "../../components/layout";
 
 const NoticeMainPage = () => {
   return (
-    <ContentsLayout>
+    <ContentsLayout isBg={true}>
       <div className="noticeMain__listItem">
         <Link to={`/notice/detail/${1}`}>
           <span>공지사항 리스트 1</span>

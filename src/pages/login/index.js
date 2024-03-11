@@ -16,7 +16,7 @@ const LoginPage = () => {
   };
 
   return (
-    <main className="login-container fade">
+    <main className="login-container fade responsive">
       <div className="login__catchphrase">
         <p className="login__subTitle">어디서나, 언제나, 팀은</p>
         <h1 className="login__title">팀 마스터</h1>

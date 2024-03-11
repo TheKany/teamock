@@ -6,7 +6,7 @@ const NoticeDetailPage = () => {
   const param = useParams();
 
   return (
-    <ContentsLayout>
+    <ContentsLayout isBg={true}>
       <h2 className="noticeDetail__title">
         공지사항 상세페이지테스트 {param.id}
       </h2>
