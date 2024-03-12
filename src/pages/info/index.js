@@ -28,6 +28,28 @@ const InfoCentreMainPage = () => {
     }
   };
 
+  useEffect(() => {
+    if (openId !== null) {
+      const element = document.querySelector(`.info__teamList-item.open`);
+
+      console.log("🚀 | useEffect | element:", element);
+      if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const isVisible =
+          elementRect.top >= 0 &&
+          elementRect.left >= 0 &&
+          elementRect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          elementRect.right <=
+            (window.innerWidth || document.documentElement.clientWidth);
+
+        if (!isVisible) {
+          element.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
+    }
+  }, [openId]);
+
   return (
     <main className="info-container">
       <div className="info__teamName-container">
@@ -56,10 +78,11 @@ const InfoCentreMainPage = () => {
           <p className="info__item style">플레이 스타일</p>
         </div>
 
-        {data?.map((el) => {
+        {data?.map((el, idx) => {
           return (
             // 선수
             <div
+              key={`No.${idx + 1}: ${el.id}_${el.name}`}
               className={`info__teamList-item ${
                 openId === el.id ? "open" : null
               }`}
@@ -73,7 +96,7 @@ const InfoCentreMainPage = () => {
 
                   {/* 기본 정보 */}
                   <div className="info__item subInfo">
-                    <p className="info__subInfo-text number">{el.id}</p>
+                    <p className="info__subInfo-text number">#{el.id}</p>
                     <p className="info__subInfo-text position">{el.position}</p>
                     <p className="info__subInfo-text name">{el.name}</p>
                   </div>

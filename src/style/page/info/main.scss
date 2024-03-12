@@ -75,6 +75,22 @@
           }
 
           &.subInfo {
+            display: grid;
+            grid-template-columns: repeat(2, 2fr);
+
+            .info__subInfo-text {
+              &.number {
+                text-align: end;
+                padding-right: 3px;
+              }
+              &.position {
+                text-align: start;
+                padding-left: 3px;
+              }
+              &.name {
+                grid-column: span 2;
+              }
+            }
           }
 
           &.nickname {
