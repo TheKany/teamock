@@ -84,7 +84,7 @@ const InfoCentreMainPage = () => {
             <div
               key={`No.${idx + 1}: ${el.id}_${el.name}`}
               className={`info__teamList-item ${
-                openId === el.id ? "open" : null
+                openId === el.id ? "open" : "no-open"
               }`}
             >
               {openId !== el.id ? (
@@ -118,13 +118,22 @@ const InfoCentreMainPage = () => {
                   className="info__item-detail"
                   onClick={() => onClickProfile(el.id)}
                 >
-                  <div className="info__detail-img">
-                    <img
-                      src={`/img/${el.imgSrc}`}
-                      alt={`${el.id}_${el.name}`}
-                    />
+                  <div className="info__container-top">
+                    ------ 🔽🔽🔽🔽 ------
                   </div>
-                  <div className="info__detail-contents"></div>
+
+                  <div className="info__container-bot">
+                    <div className="info__detail-img">
+                      <img
+                        src={`/img/${el.imgSrc}`}
+                        alt={`${el.id}_${el.name}`}
+                      />
+                    </div>
+                    <div className="info__detail-contents">
+                      <p></p>
+                      <p></p>
+                    </div>
+                  </div>
                 </button>
               )}
             </div>

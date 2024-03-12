@@ -55,7 +55,7 @@
       }
 
       &.open {
-        height: 200px;
+        height: 250px;
         overflow: hidden;
       }
 
@@ -109,25 +109,36 @@
       }
 
       .info__item-detail {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
 
-        .info__detail-img {
+        .info__container-top {
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          overflow: hidden;
-
-          img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            overflow: hidden;
-          }
+          text-align: center;
+          padding: 8px 0;
         }
 
-        .info__detail-contents {
+        .info__container-bot {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
           width: 100%;
+          height: 100%;
+
+          .info__detail-img {
+            width: 100%;
+
+            img {
+              width: 100%;
+              height: 100%;
+              display: block;
+              object-fit: cover;
+            }
+          }
+
+          .info__detail-contents {
+            width: 100%;
+            background-color: #fff;
+          }
         }
       }
     }
