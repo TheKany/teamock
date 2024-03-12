@@ -21,7 +21,11 @@ const PageTitle = () => {
     setPageTitle(handlePageName());
   }, [location.pathname]);
 
-  return <h1>{pageTitle}</h1>;
+  return (
+    <h1 style={{ paddingLeft: location.pathname.includes("main") ? 8 : 0 }}>
+      {pageTitle}
+    </h1>
+  );
 };
 
 export default PageTitle;
