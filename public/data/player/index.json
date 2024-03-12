@@ -3,60 +3,78 @@
     "id": "1",
     "position": "C",
     "name": "기세면",
-    "nickname": "언제옴?",
+    "age": 30,
+    "nickname": "인터셉터",
     "winRate": 100,
     "attRate": 100,
     "style": "듀얼가드",
-    "imgSrc": "sm.png"
+    "imgSrc": "sm.png",
+    "winAwards": 1,
+    "mvpAwards": 1
   },
   {
     "id": "3",
     "position": "SG",
     "name": "조성은",
+    "age": 30,
     "nickname": "은바오",
     "winRate": 100,
     "attRate": 100,
     "style": "스팟업 슈터",
-    "imgSrc": "se.png"
+    "imgSrc": "se.png",
+    "winAwards": 1,
+    "mvpAwards": 1
   },
   {
     "id": "23",
     "position": "SF",
     "name": "이 승",
+    "age": 30,
     "nickname": "이승저승",
     "winRate": 100,
     "attRate": 100,
     "style": "스윙맨",
-    "imgSrc": "win.png"
+    "imgSrc": "win.png",
+    "winAwards": 1,
+    "mvpAwards": 1
   },
   {
     "id": "10",
     "position": "SF",
     "name": "김남권",
+    "age": 30,
     "nickname": "남케이",
     "winRate": 100,
     "attRate": 100,
     "style": "트위너",
-    "imgSrc": "nk.png"
+    "imgSrc": "nk.png",
+    "winAwards": 1,
+    "mvpAwards": 1
   },
   {
     "id": "91",
     "position": "C",
     "name": "이상엽",
+    "age": 30,
     "nickname": "피노키엽",
     "winRate": 100,
     "attRate": 100,
     "style": "올라운드 플레이어",
-    "imgSrc": "sy.png"
+    "imgSrc": "sy.png",
+    "winAwards": 1,
+    "mvpAwards": 1
   },
   {
     "id": "00",
     "position": "G",
     "name": "이근우",
+    "age": 30,
     "nickname": "캐리어",
     "winRate": 100,
     "attRate": 100,
     "style": "볼핸들러",
-    "imgSrc": "gw.png"
+    "imgSrc": "gw.png",
+    "winAwards": 10,
+    "mvpAwards": 10
   }
 ]

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import MvpAward from "../../components/svg/mvpAward";
+import WinAward from "../../components/svg/winAward";
 
 const InfoCentreMainPage = () => {
   // 임시 선수 데이터
@@ -32,7 +34,6 @@ const InfoCentreMainPage = () => {
     if (openId !== null) {
       const element = document.querySelector(`.info__teamList-item.open`);
 
-      console.log("🚀 | useEffect | element:", element);
       if (element) {
         const elementRect = element.getBoundingClientRect();
         const isVisible =
@@ -122,7 +123,40 @@ const InfoCentreMainPage = () => {
                   <div className="info__detail-img">
                     <img src={`/img/${el.imgSrc}`} alt="선수 사진" />
                   </div>
-                  <div className="info__detail-contents"></div>
+                  <div className="info__detail-contents">
+                    <div className="info__contents basic">
+                      <span className="info__basic name">{el.name}</span>
+                      <span className="info__basic nickname">
+                        ({el.nickname})
+                      </span>
+                      <span className="info__basic age">{el.age}</span>
+                    </div>
+                    <div className="info__contents health">
+                      <span className="info__health height">180 cm</span>
+                      <span className="info__health weight">80 kg</span>
+                    </div>
+                    <div className="info__contents style">{el.style}</div>
+                    <div className="info__contents mvp">
+                      <p className="info__mvp-title">MVP</p>
+                      <div className="info__mvp-awards">
+                        {Array.from({ length: el.winAwards }, (_, index) => (
+                          <div key={index} className="mvpAward">
+                            <MvpAward />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="info__contents win">
+                      <p className="info__win-title">WIN</p>
+                      <div className="info__win-awards">
+                        {Array.from({ length: el.mvpAwards }, (_, index) => (
+                          <div key={index} className="winAward">
+                            <WinAward />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ) : null}
             </div>
