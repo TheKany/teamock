@@ -124,3 +124,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
                 )}
               </button>
             </div>
+
+            ```
+            적용할 대상에 다음과 같이 CSS를 작성합니다.
+
+min-height: 100vh;
+min-height: -webkit-fill-available; 
+혹은 아래와 같이 적용해봅니다.
+
+height: 100vh;
+height: -webkit-fill-available;
+height: fill-available;
+            ```
