@@ -50,6 +50,10 @@ const InfoCentreMainPage = () => {
     }
   }, [openId]);
 
+  useEffect(() => {
+    console.log(window.innerWidth);
+  }, [openId]);
+
   return (
     <main className="info-container">
       <div className="info__teamName-container">
@@ -84,58 +88,43 @@ const InfoCentreMainPage = () => {
             <div
               key={`No.${idx + 1}: ${el.id}_${el.name}`}
               className={`info__teamList-item ${
-                openId === el.id ? "open" : "no-open"
+                openId === el.id ? "open" : ""
               }`}
             >
-              {openId !== el.id ? (
-                <button
-                  className="info__item-btn"
-                  onClick={() => onClickProfile(el.id)}
-                >
-                  <div className="info__item photo"></div>
+              <button
+                className="info__item-btn"
+                onClick={() => onClickProfile(el.id)}
+              >
+                <div className="info__item photo"></div>
 
-                  {/* 기본 정보 */}
-                  <div className="info__item subInfo">
-                    <p className="info__subInfo-text number">#{el.id}</p>
-                    <p className="info__subInfo-text position">{el.position}</p>
-                    <p className="info__subInfo-text name">{el.name}</p>
+                {/* 기본 정보 */}
+                <div className="info__item subInfo">
+                  <p className="info__subInfo-text number">#{el.id}</p>
+                  <p className="info__subInfo-text position">{el.position}</p>
+                  <p className="info__subInfo-text name">{el.name}</p>
+                </div>
+
+                {/* 별명 */}
+                <p className="info__item nickname">{el.nickname}</p>
+
+                {/* 승률 */}
+                <p className="info__item winRate">{el.winRate}%</p>
+
+                {/* 출석율 */}
+                <p className="info__item attRate">{el.attRate}%</p>
+
+                {/* 플레이스타일 */}
+                <p className="info__item style">{el.style}</p>
+              </button>
+
+              {openId === el.id ? (
+                <div className="info__item-detail">
+                  <div className="info__detail-img">
+                    <img src={`/img/${el.imgSrc}`} alt="선수 사진" />
                   </div>
-
-                  {/* 별명 */}
-                  <p className="info__item nickname">{el.nickname}</p>
-
-                  {/* 승률 */}
-                  <p className="info__item winRate">{el.winRate}%</p>
-
-                  {/* 출석율 */}
-                  <p className="info__item attRate">{el.attRate}%</p>
-
-                  {/* 플레이스타일 */}
-                  <p className="info__item style">{el.style}</p>
-                </button>
-              ) : (
-                <button
-                  className="info__item-detail"
-                  onClick={() => onClickProfile(el.id)}
-                >
-                  <div className="info__container-top">
-                    ------ 🔽🔽🔽🔽 ------
-                  </div>
-
-                  <div className="info__container-bot">
-                    <div className="info__detail-img">
-                      <img
-                        src={`/img/${el.imgSrc}`}
-                        alt={`${el.id}_${el.name}`}
-                      />
-                    </div>
-                    <div className="info__detail-contents">
-                      <p></p>
-                      <p></p>
-                    </div>
-                  </div>
-                </button>
-              )}
+                  <div className="info__detail-contents"></div>
+                </div>
+              ) : null}
             </div>
           );
         })}
