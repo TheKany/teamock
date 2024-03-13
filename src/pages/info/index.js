@@ -8,13 +8,13 @@ const InfoCentreMainPage = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
-      // try {
-      //   const response = await fetch("/data/player/index.json");
-      //   const jsonData = await response.json();
-      //   setData(jsonData);
-      // } catch (error) {
-      //   console.error("Error fetching data:", error);
-      // }
+      try {
+        const response = await fetch("/data/player/index.json");
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
 
     fetchData();
