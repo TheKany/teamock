@@ -1,13 +1,15 @@
-import React from "react";
-
 const SkeletonBox = () => {
   return (
     <div className="skeleton__Box">
-      <span>정</span>
-      <span>보</span>
-      <span>찾</span>
-      <span>는</span>
-      <span>중</span>
+      <div className="heart throb">
+        <div className="word">loading...</div>
+
+        <div className="wrapper">
+          <div className="bg">
+            <div className="el"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

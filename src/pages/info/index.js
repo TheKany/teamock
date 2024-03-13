@@ -11,7 +11,10 @@ const InfoCentreMainPage = () => {
       try {
         const response = await fetch("/data/player/index.json");
         const jsonData = await response.json();
-        setData(jsonData);
+
+        setTimeout(() => {
+          setData(jsonData);
+        }, 1800);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
